@@ -21,7 +21,7 @@ public class Line {
      * @return String lineName
      */
     public String getLineName() {
-        return lineName;
+        return this.lineName;
     }
 
     /**
@@ -29,22 +29,26 @@ public class Line {
      * 
      * @param station
      */
-    public void addStation(Station station) {
-        STATIONS_IN_LINE.add(station);
+    public boolean addStation(Station station) {
+        if (this.STATIONS_IN_LINE.add(station)) {
+        		return true;
+        }
+        return false;
     }
 
     /**
      * Returns all STATIONS_IN_LINE of line.
+     * 
      * @return
      */
-    public ArrayList<Station> getSTATIONS_IN_LINE() {
-        return STATIONS_IN_LINE;
+    public ArrayList<Station> getStationsInLine() {
+        return this.STATIONS_IN_LINE;
     }
 
     /**
      * 
      */
     public String toString() {
-        return lineName;
+        return this.lineName;
     }
 }

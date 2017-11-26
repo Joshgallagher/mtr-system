@@ -6,7 +6,7 @@ public class MTR {
 
     private static final HashMap<String, Line> LIST_OF_LINES = new HashMap<String, Line>();
     private static final HashMap<String, Station> LIST_OF_STATIONS = new HashMap<String, Station>();
-    private static MTR INSTANCE;
+    private static MTR instance = null;
 
     /**
      * Part of singleton pattern for class MTR. Returns single INSTANCE of MTR.
@@ -14,10 +14,10 @@ public class MTR {
      * @return INSTANCE     Instance of MTR class that is constant.
      */
     public static MTR getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new MTR();
+        if (instance == null) {
+            instance = new MTR();
         }
-        return INSTANCE;
+        return instance;
     }
 
     /**
@@ -42,7 +42,7 @@ public class MTR {
             } else {
                 throw new NullPointerException("No such Line with that name.");
             }
-        } catch (NullPointerException ex){
+        } catch (NullPointerException e){
             return null;
         }
     }
@@ -64,7 +64,7 @@ public class MTR {
      * @param station       Station to add to system.
      */
     public void addStation(Station station) {
-        LIST_OF_STATIONS.put(station.getStationName(),station);
+        LIST_OF_STATIONS.put(station.getStationName(), station);
     }
 
     /**
@@ -80,7 +80,7 @@ public class MTR {
             } else {
                 throw  new NullPointerException("No such Station with that name.");
             }
-        } catch (NullPointerException ex) {
+        } catch (NullPointerException e) {
             return null;
         }
     }

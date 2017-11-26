@@ -43,12 +43,12 @@ public class Interpreter {
                 MTR.getInstance().addStation(station);
             }
 
-            for(int i = 0; i < line.getSTATIONS_IN_LINE().size(); i++) {
+            for(int i = 0; i < line.getStationsInLine().size(); i++) {
                 if(i > 0) {
-                    line.getSTATIONS_IN_LINE().get(i).addConnectedNode(line.getSTATIONS_IN_LINE().get(i - 1));
+                    line.getStationsInLine().get(i).addConnectedNode(line.getStationsInLine().get(i - 1));
                 }
-                if(i < (line.getSTATIONS_IN_LINE().size() -1)) {
-                    line.getSTATIONS_IN_LINE().get(i).addConnectedNode(line.getSTATIONS_IN_LINE().get(i + 1));
+                if(i < (line.getStationsInLine().size() -1)) {
+                    line.getStationsInLine().get(i).addConnectedNode(line.getStationsInLine().get(i + 1));
                 }
             }
             MTR.getInstance().addLine(line);
