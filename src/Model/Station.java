@@ -22,15 +22,18 @@ public class Station extends AbstractNode {
      * @return String stationName
      */
     public String getStationName() {
-        return stationName;
+        return this.stationName;
     }
 
     /**
      * Adds station to a line.
      * @param line
      */
-    public void addLine(Line line) {
-        STATION_IN_LINES.add(line);
+    public boolean addLine(Line line) {
+        if (STATION_IN_LINES.add(line)) {
+        		return true;
+        }
+        return false;
     }
 
     /**
@@ -38,7 +41,7 @@ public class Station extends AbstractNode {
      * 
      * @return HashSet
      */
-    public HashSet<Line> getSTATION_IN_LINES() {
+    public HashSet<Line> getStationInLines() {
         return STATION_IN_LINES;
     }
 
@@ -47,6 +50,6 @@ public class Station extends AbstractNode {
      * @return String stationName
      */
     public String toString() {
-        return stationName;
+        return this.stationName;
     }
 }

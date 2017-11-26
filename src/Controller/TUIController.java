@@ -16,7 +16,7 @@ public class TUIController implements IController {
         for(Line line : mtr.getLines().values()) {
             buffer += ("Line: " + line.getLineName());
             buffer += ("\n");
-            buffer += ("Termini: " + line.getSTATIONS_IN_LINE().get(0).getStationName() + " <-> " + line.getSTATIONS_IN_LINE().get(line.getSTATIONS_IN_LINE().size() - 1).getStationName());
+            buffer += ("Termini: " + line.getStationsInLine().get(0).getStationName() + " <-> " + line.getStationsInLine().get(line.getStationsInLine().size() - 1).getStationName());
             buffer += ("\n\n");
         }
         return buffer;
@@ -27,9 +27,9 @@ public class TUIController implements IController {
         try {
             Line line1 = mtr.getLine(line);
             String buffer = "";
-            for (int i = 0; i < line1.getSTATIONS_IN_LINE().size(); i++) {
-                buffer += (line1.getSTATIONS_IN_LINE().get(i).getStationName());
-                if (i < (line1.getSTATIONS_IN_LINE().size() - 1)) {
+            for (int i = 0; i < line1.getStationsInLine().size(); i++) {
+                buffer += (line1.getStationsInLine().get(i).getStationName());
+                if (i < (line1.getStationsInLine().size() - 1)) {
                     buffer += " <-> ";
                 }
             }
@@ -46,8 +46,8 @@ public class TUIController implements IController {
             HashSet<Line> linkedLines = new HashSet<Line>();
             String buffer = "";
 
-            for (Station station : line1.getSTATIONS_IN_LINE()) {
-                linkedLines.addAll(station.getSTATION_IN_LINES());
+            for (Station station : line1.getStationsInLine()) {
+                linkedLines.addAll(station.getStationInLines());
             }
             linkedLines.remove(line1);
 
