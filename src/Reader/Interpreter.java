@@ -1,11 +1,11 @@
-package Reader;
+package reader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Model.Line;
-import Model.MTR;
-import Model.Station;
+import model.Line;
+import model.MTR;
+import model.Station;
 
 public class Interpreter {
 	
