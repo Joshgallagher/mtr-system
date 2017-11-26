@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import java.util.HashSet;
 
-import Model.Line;
-import Model.MTR;
-import Model.Station;
+import model.Line;
+import model.MTR;
+import model.Station;
 
 public class TUIController implements IController {
 
