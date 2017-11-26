@@ -1,8 +1,8 @@
-package View;
+package view;
 
 import java.util.Scanner;
 
-import Controller.IController;
+import controller.IController;
 
 /**
  * A simple text-based user interface for showing various information about an MTR network.

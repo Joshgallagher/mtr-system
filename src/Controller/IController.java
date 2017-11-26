@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 /**
  * A controller for the MTR Information Centre system.

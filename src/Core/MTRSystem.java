@@ -1,9 +1,9 @@
-package Core;
+package core;
 
-import Controller.TUIController;
-import Reader.Interpreter;
-import Reader.Reader;
-import View.TUIView;
+import controller.TUIController;
+import reader.Interpreter;
+import reader.Reader;
+import view.TUIView;
 
 public class MTRSystem {
 	
