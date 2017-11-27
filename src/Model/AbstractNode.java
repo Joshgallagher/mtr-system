@@ -30,7 +30,7 @@ public abstract class AbstractNode {
      * @param endNode
      * @return
      */
-    public List<AbstractNode> bfsFromHere(AbstractNode endNode) {
+    public String bfsFromHere(AbstractNode endNode) {
     	
         List<AbstractNode> pathList = new LinkedList<>();
         LinkedList<AbstractNode> queue = new LinkedList<>();
@@ -48,7 +48,7 @@ public abstract class AbstractNode {
                 break;
             } else {
                 if(currentNode.getConnectedNodes().isEmpty()) {
-                    break;
+                    return "Sorry, a path could not be foound";
                 } else {
                     for (AbstractNode node : currentNode.getConnectedNodes()) {
                         if (!visited.contains(node)) {
@@ -72,6 +72,6 @@ public abstract class AbstractNode {
         		curNode = parents.get(curNode);
         }
         
-        return pathList;
+        return pathList.toString();
     }
 }
