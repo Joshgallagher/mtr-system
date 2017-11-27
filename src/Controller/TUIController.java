@@ -12,7 +12,9 @@ public class TUIController implements IController {
 
     private static final MTR mtr = MTR.getInstance();
 
-    @Override
+    /**
+     * 
+     */
     public String listAllTermini() {
     		StringBuffer buffer = new StringBuffer();
         for(Line line : mtr.getLines().values()) {
@@ -24,7 +26,9 @@ public class TUIController implements IController {
         return buffer.toString();
     }
 
-    @Override
+    /**
+     * 
+     */
     public String listStationsInLine(String line) {
     		StringBuffer buffer = new StringBuffer();
         try {
@@ -41,7 +45,9 @@ public class TUIController implements IController {
         return buffer.toString();
     }
 
-    @Override
+    /**
+     * 
+     */
     public String listAllDirectlyConnectedLines(String line) {
     		StringBuffer buffer = new StringBuffer();
     		
@@ -64,7 +70,9 @@ public class TUIController implements IController {
         return buffer.toString();
     }
 
-    @Override
+    /**
+     * 
+     */
     public String showPathBetween(String stationA, String stationB) {
 
     		Station stationAObject = mtr.getStation(stationA);
