@@ -4,9 +4,8 @@ import java.util.HashSet;
 
 public class Station extends AbstractNode {
 
-    private final HashSet<Line> STATION_IN_LINES = new HashSet<Line>();
+    private final HashSet<Line> stationInLines = new HashSet<Line>();
     private String stationName;
-
     
     /**
      * 
@@ -30,7 +29,7 @@ public class Station extends AbstractNode {
      * @param line
      */
     public boolean addLine(Line line) {
-        if (STATION_IN_LINES.add(line)) {
+        if (stationInLines.add(line)) {
         		return true;
         }
         return false;
@@ -42,7 +41,7 @@ public class Station extends AbstractNode {
      * @return HashSet
      */
     public HashSet<Line> getStationInLines() {
-        return STATION_IN_LINES;
+        return stationInLines;
     }
 
     /**

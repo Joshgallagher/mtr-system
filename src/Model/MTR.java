@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class MTR {
 
-    private static final HashMap<String, Line> LIST_OF_LINES = new HashMap<String, Line>();
-    private static final HashMap<String, Station> LIST_OF_STATIONS = new HashMap<String, Station>();
+    private static final HashMap<String, Line> listOfLines = new HashMap<String, Line>();
+    private static final HashMap<String, Station> listOfStations = new HashMap<String, Station>();
     private static MTR instance = null;
 
     /**
@@ -26,7 +26,7 @@ public class MTR {
      * @param line      Line object to add.
      */
     public void addLine(Line line) {
-        LIST_OF_LINES.put(line.getLineName(), line);
+        listOfLines.put(line.getLineName(), line);
     }
 
     /**
@@ -37,8 +37,8 @@ public class MTR {
      */
     public Line getLine(String lineName) {
         try {
-            if(LIST_OF_LINES.containsKey(lineName)) {
-                return LIST_OF_LINES.get(lineName);
+            if(listOfLines.containsKey(lineName)) {
+                return listOfLines.get(lineName);
             } else {
                 throw new NullPointerException("No such Line with that name.");
             }
@@ -53,7 +53,7 @@ public class MTR {
      * @return  ArrayList<Line>     ArrayList containing Line objects.
      */
     public HashMap<String, Line> getLines() {
-        return LIST_OF_LINES;
+        return listOfLines;
     }
 
     /**
@@ -64,7 +64,7 @@ public class MTR {
      * @param station       Station to add to system.
      */
     public void addStation(Station station) {
-        LIST_OF_STATIONS.put(station.getStationName(), station);
+        listOfStations.put(station.getStationName(), station);
     }
 
     /**
@@ -75,8 +75,8 @@ public class MTR {
      */
     public Station getStation(String stationName) {
         try {
-            if(LIST_OF_STATIONS.containsKey(stationName)) {
-                return LIST_OF_STATIONS.get(stationName);
+            if(listOfStations.containsKey(stationName)) {
+                return listOfStations.get(stationName);
             } else {
                 throw  new NullPointerException("No such Station with that name.");
             }
@@ -91,6 +91,6 @@ public class MTR {
      * @return  ArrayList<Station>     ArrayList containing Station objects.
      */
     public HashMap<String, Station> getStations() {
-        return LIST_OF_STATIONS;
+        return listOfStations;
     }
 }

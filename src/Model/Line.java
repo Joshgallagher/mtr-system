@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Line {
 
-    private final ArrayList<Station> STATIONS_IN_LINE = new ArrayList<Station>();
+    private final ArrayList<Station> stationsInLine = new ArrayList<Station>();
     private String lineName;
     
     /**
@@ -30,7 +30,7 @@ public class Line {
      * @param station
      */
     public boolean addStation(Station station) {
-        if (this.STATIONS_IN_LINE.add(station)) {
+        if (this.stationsInLine.add(station)) {
         		return true;
         }
         return false;
@@ -42,7 +42,7 @@ public class Line {
      * @return
      */
     public ArrayList<Station> getStationsInLine() {
-        return this.STATIONS_IN_LINE;
+        return this.stationsInLine;
     }
 
     /**
