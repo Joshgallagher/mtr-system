@@ -1,7 +1,9 @@
 package controller;
 
 import java.util.HashSet;
+import java.util.List;
 
+import model.AbstractNode;
 import model.Line;
 import model.MTR;
 import model.Station;
@@ -12,39 +14,40 @@ public class TUIController implements IController {
 
     @Override
     public String listAllTermini() {
-        String buffer = "";
+    		StringBuffer buffer = new StringBuffer();
         for(Line line : mtr.getLines().values()) {
-            buffer += ("Line: " + line.getLineName());
-            buffer += ("\n");
-            buffer += ("Termini: " + line.getStationsInLine().get(0).getStationName() + " <-> " + line.getStationsInLine().get(line.getStationsInLine().size() - 1).getStationName());
-            buffer += ("\n\n");
+            buffer.append("Line: " + line.getLineName());
+            buffer.append("\n");
+            buffer.append("Termini: " + line.getStationsInLine().get(0).getStationName() + " <-> " + line.getStationsInLine().get(line.getStationsInLine().size() - 1).getStationName());
+            buffer.append("\n\n");
         }
-        return buffer;
+        return buffer.toString();
     }
 
     @Override
     public String listStationsInLine(String line) {
+    		StringBuffer buffer = new StringBuffer();
         try {
             Line line1 = mtr.getLine(line);
-            String buffer = "";
             for (int i = 0; i < line1.getStationsInLine().size(); i++) {
-                buffer += (line1.getStationsInLine().get(i).getStationName());
+                buffer.append(line1.getStationsInLine().get(i).getStationName());
                 if (i < (line1.getStationsInLine().size() - 1)) {
-                    buffer += " <-> ";
+                    buffer.append(" <-> ");
                 }
             }
-            return buffer;
-        } catch (NullPointerException ex) {
-            return ("No line with name '" + line + "' in system.");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
+        return buffer.toString();
     }
 
     @Override
     public String listAllDirectlyConnectedLines(String line) {
+    		StringBuffer buffer = new StringBuffer();
+    		
         try {
             Line line1 = mtr.getLine(line);
             HashSet<Line> linkedLines = new HashSet<Line>();
-            String buffer = "";
 
             for (Station station : line1.getStationsInLine()) {
                 linkedLines.addAll(station.getStationInLines());
@@ -52,29 +55,29 @@ public class TUIController implements IController {
             linkedLines.remove(line1);
 
             for (Line lines : linkedLines) {
-                buffer += lines.getLineName();
-                buffer += "\n";
+                buffer.append(lines.getLineName());
+                buffer.append("\n");
             }
-            return buffer;
-        } catch (NullPointerException ex) {
-            return ("No line with name '" + line + "' in system.");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
+        return buffer.toString();
     }
 
     @Override
     public String showPathBetween(String stationA, String stationB) {
-        try {
-            Station stationAObject = mtr.getStation(stationA);
-            if(stationAObject == null) {
-                throw new NullPointerException(stationA);
-            }
-            Station stationBObject = mtr.getStation(stationB);
-            if(stationBObject == null) {
-                throw new NullPointerException(stationB);
-            }
-            return stationAObject.bfsFromHere(stationBObject);
-        } catch (NullPointerException ex) {
-            return ("No station with name '" + ex.getMessage() + "' in system.");
-        }
+
+    		Station stationAObject = mtr.getStation(stationA);
+    		Station stationBObject = mtr.getStation(stationB);
+    		
+    		List<AbstractNode> stationList = stationAObject.bfsFromHere(stationBObject);
+    		StringBuffer buffer = new StringBuffer();
+    		
+    		for (AbstractNode station : stationList) {
+    			buffer.append(station);
+    			if (!station.equals(stationList.get(stationList.size() - 1))) buffer.append(" -> ");
+    		}
+    		
+    		return buffer.toString();
     }
 }
