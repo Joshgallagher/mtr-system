@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Line {
 
-    private final ArrayList<Station> stationsInLine = new ArrayList<Station>();
+    private final ArrayList<Station> stationsInLine = new ArrayList<>();
     private String lineName;
     
     /**

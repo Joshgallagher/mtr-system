@@ -1,10 +1,11 @@
 package model;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Station extends AbstractNode {
 
-    private final HashSet<Line> stationInLines = new HashSet<Line>();
+    private final Set<Line> stationInLines = new HashSet<>();
     private String stationName;
     
     /**
@@ -40,7 +41,7 @@ public class Station extends AbstractNode {
      * 
      * @return HashSet
      */
-    public HashSet<Line> getStationInLines() {
+    public Set<Line> getStationInLines() {
         return stationInLines;
     }
 
