@@ -10,24 +10,44 @@ import model.Station;
 
 public class TUIController implements IController {
 
-    private static final MTR mtr = MTR.getInstance();
-
+    private MTR mtr;
+    
     /**
+     * Creates an instance of <code>TUIController</code>.
+     * Requires one parameter; the {@link MTR} class.
      * 
+     * @param MTR mtr
+     */
+    public TUIController(MTR mtr) {
+    		this.mtr = mtr;
+    }
+    
+    /**
+     * Returns a list of all the Termini in the MTR System.
+     * 
+     * @return StringBuffer buffer
      */
     public String listAllTermini() {
     		StringBuffer buffer = new StringBuffer();
         for(Line line : mtr.getLines().values()) {
-            buffer.append("Line: " + line.getLineName());
+            buffer.append("Line: ");
+            buffer.append(line.getLineName());
             buffer.append("\n");
-            buffer.append("Termini: " + line.getStationsInLine().get(0).getStationName() + " <-> " + line.getStationsInLine().get(line.getStationsInLine().size() - 1).getStationName());
+            buffer.append("Termini: ");
+            buffer.append(line.getStationsInLine().get(0).getStationName());
+            buffer.append(" <-> ");
+            buffer.append(line.getStationsInLine().get(line.getStationsInLine().size() - 1).getStationName());
             buffer.append("\n\n");
         }
         return buffer.toString();
     }
 
     /**
+     * Returns all stations in a line.
+     * The line is specified by the user.
      * 
+     * @param String line
+     * @return StringBuffer buffer
      */
     public String listStationsInLine(String line) {
     		StringBuffer buffer = new StringBuffer();
@@ -80,6 +100,8 @@ public class TUIController implements IController {
     		
     		List<AbstractNode> stationList = stationAObject.bfsFromHere(stationBObject);
     		StringBuffer buffer = new StringBuffer();
+    		
+    		buffer.append("Path: ");
     		
     		for (AbstractNode station : stationList) {
     			buffer.append(station);

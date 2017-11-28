@@ -1,23 +1,16 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class MTR {
 
-    private static final HashMap<String, Line> listOfLines = new HashMap<String, Line>();
-    private static final HashMap<String, Station> listOfStations = new HashMap<String, Station>();
-    private static MTR instance = null;
+    private final Map<String, Line> listOfLines;
+    private final Map<String, Station> listOfStations;
 
-    /**
-     * Part of singleton pattern for class MTR. Returns single INSTANCE of MTR.
-     * 
-     * @return INSTANCE     Instance of MTR class that is constant.
-     */
-    public static MTR getInstance() {
-        if (instance == null) {
-            instance = new MTR();
-        }
-        return instance;
+    public MTR() {
+    		this.listOfLines = new HashMap<>();
+    		this.listOfStations = new HashMap<>();
     }
 
     /**
@@ -52,7 +45,7 @@ public class MTR {
      * 
      * @return  ArrayList<Line>     ArrayList containing Line objects.
      */
-    public HashMap<String, Line> getLines() {
+    public Map<String, Line> getLines() {
         return listOfLines;
     }
 
@@ -78,7 +71,7 @@ public class MTR {
             if(listOfStations.containsKey(stationName)) {
                 return listOfStations.get(stationName);
             } else {
-                throw  new NullPointerException("No such Station with that name.");
+                throw new NullPointerException("No such Station with that name.");
             }
         } catch (NullPointerException e) {
             return null;
@@ -90,7 +83,7 @@ public class MTR {
      * 
      * @return  ArrayList<Station>     ArrayList containing Station objects.
      */
-    public HashMap<String, Station> getStations() {
+    public Map<String, Station> getStations() {
         return listOfStations;
     }
 }

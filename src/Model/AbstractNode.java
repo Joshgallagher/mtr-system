@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public abstract class AbstractNode {
 
-	private final HashSet<AbstractNode> connectedNodes = new HashSet<AbstractNode>();
+	private final Set<AbstractNode> connectedNodes = new HashSet<>();
 
 	/**
 	 * 
@@ -21,7 +23,7 @@ public abstract class AbstractNode {
 	 * 
 	 * @return
 	 */
-	public HashSet<AbstractNode> getConnectedNodes() {
+	public Set<AbstractNode> getConnectedNodes() {
 		return connectedNodes;
 	}
 
@@ -35,8 +37,8 @@ public abstract class AbstractNode {
 		List<AbstractNode> pathList = new LinkedList<>();
 		LinkedList<AbstractNode> queue = new LinkedList<>();
 
-		HashSet<AbstractNode> visited = new HashSet<AbstractNode>();
-		HashMap<AbstractNode, AbstractNode> parents = new HashMap<>();
+		Set<AbstractNode> visited = new HashSet<>();
+		Map<AbstractNode, AbstractNode> parents = new HashMap<>();
 
 		queue.add(this);
 		visited.add(this);
@@ -44,26 +46,19 @@ public abstract class AbstractNode {
 		while (!queue.isEmpty()) {
 			AbstractNode currentNode = queue.remove();
 
-			if (currentNode == endNode) {
-				break;
-			} else {
-				for (AbstractNode node : currentNode.getConnectedNodes()) {
-					if (!visited.contains(node)) {
-						queue.add(node);
-						parents.put(node, currentNode);
-					}
+			for (AbstractNode node : currentNode.getConnectedNodes()) {
+				if (!visited.contains(node)) {
+					queue.add(node);
+					parents.put(node, currentNode);
 				}
-				visited.add(currentNode);
 			}
+			visited.add(currentNode);
 		}
 
-		if (parents.get(endNode) == null) {
+		if (parents.get(endNode) == null)
 			return null;
-		}
 
-		AbstractNode curNode = endNode;
-
-		while (curNode != null) {
+		for (AbstractNode curNode = endNode; curNode != null;) {
 			pathList.add(0, curNode);
 			curNode = parents.get(curNode);
 		}
