@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * This class is responsible for building the MTR System's
+ * <code>Line</code>'s and <code>Station</code>'s.
  * 
  * @author Joshua Gallagher
  * @author Thomas Geraghty

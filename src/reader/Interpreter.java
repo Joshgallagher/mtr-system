@@ -9,23 +9,37 @@ import model.MTR;
 import model.Station;
 
 /**
+ * This class is responsible for interpreting the .csv files data.
+ * Once it has interpreted the whole file, it build the system.
  * 
- * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @author Joshua Gallagher
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
+ * 
  * @version 15/10/2017
  */
 public class Interpreter {
 
 	/**
+	 * The <code>Interpreter</code>'s constructor.
+	 * Requires two parameters: <code>Reader</code> and <code>MTR</code>.
 	 * 
 	 * @param input
+	 * @param mtr
 	 */
 	public Interpreter(Reader input, MTR mtr) {
 		interpretCSV(input, mtr);
 	}
 
 	/**
+	 * This method is responsible for interpreting the recieved
+	 * from the <code>Reader</code>.
 	 * 
-	 * @param input
+	 * It then takes this data and builds the <code>MTR</code> - 
+	 * the <code>Station</code>'s and <code>Line</code>'s.
+	 * 
+	 * @param input The <code>Reader</code> is passed in to get the data from the .csv and pass it into this method.
+	 * @param mtr An instance of <code>MTR</code> is required to build the system from the interpreted data.
 	 */
 	private void interpretCSV(Reader input, MTR mtr) {
 		ArrayList<ArrayList<String>> lines = input.readFile();

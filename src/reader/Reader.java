@@ -2,18 +2,34 @@ package reader;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * 
- * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @author Joshua Gallagher 
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
+ * 
  * @version 15/10/2017
  */
 public class Reader {
 
+	/**
+	 * 
+	 */
     private File file;
+    
+    /**
+     * 
+     */
     private FileReader fr;
+    
+    /**
+     * 
+     */
     private BufferedReader br;
     
     /**
@@ -25,7 +41,7 @@ public class Reader {
             fr = new FileReader(file);
             br = new BufferedReader(fr);
 
-        } catch(Exception e) {
+        } catch(FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
@@ -57,7 +73,7 @@ public class Reader {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return arrayOfLines;

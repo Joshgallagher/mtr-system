@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * This class models a railway <code>Station</code> from the MTR System
+ * and then puts it in its associated line.
  * 
  * @author Joshua Gallagher
  * @author Thomas Geraghty
