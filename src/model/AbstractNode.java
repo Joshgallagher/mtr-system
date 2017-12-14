@@ -8,40 +8,58 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * The <code>AbstractNode</code> class provides specific functionality, for finding the
+ * most efficient path from one <code>station</code> to another.
  * 
- * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * This class uses the search algorithm: Breadth First Search to accomplish finding the
+ * most efficient path between two stations.
+ * 
+ * @author Joshua Gallagher
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
+ * 
  * @version 15/10/2017
  */
 public abstract class AbstractNode {
-
+	
+	/**
+	 * A set of <code>connectedNodes</code> that represent connected stations.
+	 */
 	private final Set<AbstractNode> connectedNodes = new HashSet<>();
 
 	/**
+	 * Adds a <code>node</code> to the <code>connectedNodes</code>
+	 * <code>Set</code>.
 	 * 
-	 * @param node
+	 * @param node A node represents a single <code>Station<code> in the system.
 	 */
 	public void addConnectedNode(AbstractNode node) {
 		connectedNodes.add(node);
 	}
-
+	
 	/**
+	 * Returns the <code>Set</code> of <code>connectedNodes</code>.
 	 * 
-	 * @return
+	 * @return connectedNodes Returns a <code>Set</code> of <code>connectedNodes</code> - (connected stations).
 	 */
 	public Set<AbstractNode> getConnectedNodes() {
 		return connectedNodes;
 	}
 
 	/**
+	 * This method performs Breadth First Search on two stations - the
+	 * start and end nodes (stations).
 	 * 
-	 * @param endNode
-	 * @return
+	 * First, it performs BFS to find the most efficient path to the end station.
+	 * 
+	 * Secondly, it takes the found path (if a path is found), and returns it
+	 * as a <code>LinkedList</code> so the output can be rendered for the user.
+	 * 
+	 * @param endNode The node (<code>station</code>) that the algorithm should find a path to.
+	 * @return pathList Returns a <code>List</code> of nodes. The nodes returned are all stations needed to reach the <code>endNode</code>.
 	 */
 	public List<AbstractNode> bfsFromHere(AbstractNode endNode) {
-
-		List<AbstractNode> pathList = new LinkedList<>();
 		LinkedList<AbstractNode> queue = new LinkedList<>();
-
 		Set<AbstractNode> visited = new HashSet<>();
 		Map<AbstractNode, AbstractNode> parents = new HashMap<>();
 
@@ -59,6 +77,8 @@ public abstract class AbstractNode {
 			}
 			visited.add(currentNode);
 		}
+		
+		List<AbstractNode> pathList = new LinkedList<>();
 
 		if (parents.get(endNode) == null)
 			return null;

@@ -9,6 +9,13 @@ import model.MTR;
 import model.Station;
 
 /**
+ * The <code>TUIController</code> handles talking to the Models and
+ * handing of the data to the views. 
+ * 
+ * This controller specifically,
+ * handles getting the data from <code>AbstractNode</code>, <code>Station</code>,
+ * <code>Line</code> and <code>MTR</code> models. This controller passes the data 
+ * to <code>TUIView</code>.
  * 
  * @author Joshua Gallagher
  * @author Thomas Geraghty

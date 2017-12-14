@@ -5,33 +5,47 @@ import java.util.Map;
 
 /**
  * 
- * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @author Joshua Gallagher
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
  * @version 15/10/2017
  */
 public class MTR {
-
+	
+	/**
+	 * Stores the name of the line and a <code>Line</code> object in a <code>Map</code>.
+	 */
     private final Map<String, Line> listOfLines;
+    
+	/**
+	 * Stores the name of a station and a <code>Station</code> object in a <code>Map</code>.
+	 */
     private final Map<String, Station> listOfStations;
 
+    /**
+     * The <code>MTR</code> classes constructor. The <code>listOfLines</code> <code>HashMap</code>
+     * and <code>listOfStations</code> <code>HashMap</code> is initialised for use.
+     */
     public MTR() {
     		this.listOfLines = new HashMap<>();
     		this.listOfStations = new HashMap<>();
     }
 
     /**
-     * Adds passed Line object to list of current lines in the system.
+     * Adds a <code>Line</code> object to <code>listOfLines</code> in the MTR System.
      * 
-     * @param line      Line object to add.
+     * @param line <code>Line</code> object to be added to <code>listOfLines</code>.
      */
     public void addLine(Line line) {
         listOfLines.put(line.getLineName(), line);
     }
 
     /**
-     * Returns the corresponding Line object from a line's name which is passed.
+     * Returns the corresponding <code>Line</code> object from a 
+     * line's name. The lines name is a parameter to be passed in.
      * 
-     * @param lineName
-     * @return
+     * @param lineName The <code>Line</code>'s name.
+     * @return Line Returns a <code>Line</code> object by its <code>lineName</code>.
      */
     public Line getLine(String lineName) {
         try {
@@ -46,30 +60,29 @@ public class MTR {
     }
 
     /**
-     * Returns all the Line objects in the MTR, in an ArrayList.
+     * Returns all the <code>Line</code> objects in the <code>MTR</code>, in an <code>ArrayList</code>.
      * 
-     * @return  ArrayList<Line>     ArrayList containing Line objects.
+     * @return listOfLines Returns the <code>listOfLines</code>, which contains all line in the <code>MTR</code>.
      */
     public Map<String, Line> getLines() {
         return listOfLines;
     }
 
     /**
-     * Adds station to HashMap of stations, checks if duplicate station, and if so
-     * does not create a new station entry, but instead merges original with duplicate..
-     * Adds the station to the line it is on, too,
+     * Add a <code>Station</code> to the <code>listOfStations</code> <code>Map</code>.
      * 
-     * @param station       Station to add to system.
+     * @param station <code>Station</code> object to add to the <code>listOfStations</code>.
      */
     public void addStation(Station station) {
         listOfStations.put(station.getStationName(), station);
     }
 
     /**
-     * Returns corresponding Station object based on passed station name.
+     * Returns corresponding <code>Station</code> object based on 
+     * passed <code>stationName</code>.
      * 
-     * @param stationName
-     * @return
+     * @param stationName The <code>stationName</code> is used to get a specific <code>Station</code> from <code>listOfStations</code>.
+     * @return Station Returns a <code>Station</code> object.
      */
     public Station getStation(String stationName) {
         try {
@@ -84,9 +97,9 @@ public class MTR {
     }
 
     /**
-     * Returns all the Station objects in the MTR, in an ArrayList.
+     * Returns all the <code>Station</code> objects in the <code>MTR</code>, in an <code>ArrayList</code>.
      * 
-     * @return  ArrayList<Station>     ArrayList containing Station objects.
+     * @return listOfStations Returns an <code>ArrayList</code> containing <code>Station</code> objects.
      */
     public Map<String, Station> getStations() {
         return listOfStations;
