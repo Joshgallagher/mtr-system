@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-import controller.IController;
+import controller.Controller;
 
 /**
  * A simple text-based user interface for showing various information about an MTR network.
@@ -12,10 +12,10 @@ import controller.IController;
  */
 public class TUIView {
 
-	private IController controller;  
+	private Controller controller;  
 	private Scanner stdIn;
 	
-	public TUIView(IController controller) {
+	public TUIView(Controller controller) {
 		
 		this.controller = controller;
 		

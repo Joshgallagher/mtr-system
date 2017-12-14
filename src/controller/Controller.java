@@ -8,7 +8,7 @@ package controller;
  * @author Sylvia Wong
  * @version 15/10/2017
  */
-public interface IController {
+public interface Controller {
 	
 	/**
 	 * Lists all termini in this MTR network.
