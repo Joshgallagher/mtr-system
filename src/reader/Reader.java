@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 /**
  * 
+ * This class is responsible for reading the .csv files data.
+ * It reads the file, so it can provide data for the interpreter.
+ *
  * @author Joshua Gallagher
  * @author Thomas Geraghty
  * @author Dimitar Stoynev
@@ -18,23 +21,28 @@ import java.util.ArrayList;
 public class Reader {
 
 	/**
-	 * 
-	 */
+     	* A File field which, receives the .csv file destination as a parameter,
+     	* and represents that file in the system.
+     	*/
 	private File file;
 
 	/**
-	 * 
-	 */
+     	* The FileReader uses a File, so it can read the contents of the file as a stream of characters.
+     	*/
 	private FileReader fr;
 
 	/**
-	 * 
-	 */
+     	* The BufferedReader reads text from a character-input stram(FileReader)
+     	*/
 	private BufferedReader br;
 
 	/**
-	 * 
-	 */
+	* The <code>Reader</code>'s constructor. Requires one parameter:
+	* <code>String</code>.
+	* 
+	* @param fileLocation
+	* 
+	*/
 	public Reader(String fileLocation) {
 		file = new File(fileLocation);
 		try {
@@ -46,9 +54,13 @@ public class Reader {
 	}
 
 	/**
-	 * 
-	 * @return
-	 */
+	* This method is responsible for reading the data form the .csv file
+	* 
+	* It then takes this data and passes it to the <code>Interpreter</code> - the
+	* 
+	* @return an ArrayList of all the lines with their stations 
+	* 
+	*/
 	public ArrayList<ArrayList<String>> readFile() {
 
 		ArrayList<ArrayList<String>> arrayOfLines = new ArrayList<>();
