@@ -3,6 +3,11 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public class Station extends AbstractNode {
 
     private final Set<Line> stationInLines = new HashSet<>();

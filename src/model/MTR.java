@@ -3,6 +3,11 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public class MTR {
 
     private final Map<String, Line> listOfLines;

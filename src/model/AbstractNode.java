@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public abstract class AbstractNode {
 
 	private final Set<AbstractNode> connectedNodes = new HashSet<>();

@@ -5,6 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public class Reader {
 
     private File file;

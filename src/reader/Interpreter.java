@@ -8,6 +8,11 @@ import model.Line;
 import model.MTR;
 import model.Station;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public class Interpreter {
 
 	/**

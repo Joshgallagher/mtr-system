@@ -8,15 +8,23 @@ import model.Line;
 import model.MTR;
 import model.Station;
 
+/**
+ * 
+ * @author Joshua Gallagher
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
+ * 
+ * @version 15/10/2017
+ */
 public class TUIController implements IController {
 
     private MTR mtr;
     
     /**
      * Creates an instance of <code>TUIController</code>.
-     * Requires one parameter; the {@link MTR} class.
+     * Requires one parameter - <code>mtr</code>.
      * 
-     * @param MTR mtr
+     * @param mtr The <code>MTR</code> represents an underground system made up of lines and stations.
      */
     public TUIController(MTR mtr) {
     		this.mtr = mtr;
@@ -25,7 +33,7 @@ public class TUIController implements IController {
     /**
      * Returns a list of all the Termini in the MTR System.
      * 
-     * @return StringBuffer buffer
+     * @return buffer Returns all Termini in the MTR System as a <code>String</code>.
      */
     public String listAllTermini() {
     		StringBuffer buffer = new StringBuffer();
@@ -43,11 +51,13 @@ public class TUIController implements IController {
     }
 
     /**
-     * Returns all stations in a line.
-     * The line is specified by the user.
+     * Lists all stations in a line, in the MTR system.
      * 
-     * @param String line
-     * @return StringBuffer buffer
+     * This method returns a string of stations that 
+     * are connected to a <code>Line</code>.
+     * 
+     * @param line The line that the user wants to see all stations that belong to it.
+     * @return buffer Returns all the stations as a <code>String</code> belonging to the specified line.
      */
     public String listStationsInLine(String line) {
     		StringBuffer buffer = new StringBuffer();
@@ -66,7 +76,12 @@ public class TUIController implements IController {
     }
 
     /**
+     * Returns a list of all lines that are directly
+     * connected to a specific line. The <code>line</code> is specified
+     * by the user.
      * 
+     * @param line The line, which all other lines are connected to. Specified by the user.
+     * @return buffer Returns <code>Lines</code> as a <code>String</code> to be shown to the user.
      */
     public String listAllDirectlyConnectedLines(String line) {
     		StringBuffer buffer = new StringBuffer();
@@ -91,7 +106,13 @@ public class TUIController implements IController {
     }
 
     /**
+     * Finds the most efficient path between to given stations.
+     * Once a path is found, the trail between the start and end
+     * <code>Station</code> are returned.
      * 
+     * @param stationA The <code>Station</code> the user wants to begin at.
+     * @param stationB The <code>Station</code> the user wants to get to.
+     * @return buffer Returns both <code>stationA</code> and <code>stationB</code> with all the stations it has travelled through returned as a formatted String. 
      */
     public String showPathBetween(String stationA, String stationB) {
 

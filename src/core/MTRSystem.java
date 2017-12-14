@@ -6,6 +6,11 @@ import reader.Interpreter;
 import reader.Reader;
 import view.TUIView;
 
+/**
+ * 
+ * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @version 15/10/2017
+ */
 public class MTRSystem {
 	
 	/**
