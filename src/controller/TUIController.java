@@ -102,7 +102,6 @@ public class TUIController implements Controller {
 	 */
 	public String listAllDirectlyConnectedLines(String line) {
 		StringBuffer buffer = new StringBuffer();
-
 		try {
 			Line line1 = mtr.getLine(line);
 			HashSet<Line> linkedLines = new HashSet<Line>();
@@ -136,7 +135,7 @@ public class TUIController implements Controller {
 	 */
 	public String showPathBetween(String stationA, String stationB) {
 		StringBuffer buffer = new StringBuffer();
-		
+
 		try {
 			Station stationAObject = mtr.getStation(stationA);
 			Station stationBObject = mtr.getStation(stationB);
