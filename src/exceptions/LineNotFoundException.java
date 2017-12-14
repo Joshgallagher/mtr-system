@@ -10,13 +10,13 @@ package exceptions;
 public class LineNotFoundException extends Exception {
 
 	/**
-	 * Ensures that the sender and receiver of the serialized object have loaded
-	 * classes for that object that are compatible with respect to serialization.
+	 * Ensures that the sender and receiver of the serialised object have loaded
+	 * classes for that object that are compatible with respect to serialisation.
 	 */
 	private static final long serialVersionUID = 624198833453373737L;
 
 	/**
-	 * <code>LineNotFoundException</code> constructor. Expects one paremeter:
+	 * <code>LineNotFoundException</code> constructor. Expects one parameter:
 	 * <code>message</code>.
 	 * 
 	 * @param message

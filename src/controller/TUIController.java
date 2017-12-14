@@ -78,6 +78,7 @@ public class TUIController implements Controller {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			Line line1 = mtr.getLine(line);
+			buffer.append(line + ": ");
 			for (int i = 0; i < line1.getStationsInLine().size(); i++) {
 				buffer.append(line1.getStationsInLine().get(i).getStationName());
 				if (i < (line1.getStationsInLine().size() - 1)) {
@@ -135,7 +136,6 @@ public class TUIController implements Controller {
 	 */
 	public String showPathBetween(String stationA, String stationB) {
 		StringBuffer buffer = new StringBuffer();
-
 		try {
 			Station stationAObject = mtr.getStation(stationA);
 			Station stationBObject = mtr.getStation(stationB);
@@ -152,7 +152,6 @@ public class TUIController implements Controller {
 		} catch (StationNotFoundException e) {
 			buffer.append(e.getMessage());
 		}
-
 		return buffer.toString();
 	}
 }

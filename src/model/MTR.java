@@ -62,7 +62,7 @@ public class MTR {
 	 */
 	public Line getLine(String lineName) throws LineNotFoundException {
 		if (!listOfLines.containsKey(lineName)) {
-			throw new LineNotFoundException("No such Line with that name!");
+			throw new LineNotFoundException("No such line with that name!");
 		}
 		return listOfLines.get(lineName);
 	}
@@ -103,7 +103,7 @@ public class MTR {
 	 */
 	public Station getStation(String stationName) throws StationNotFoundException {
 		if (!listOfStations.containsKey(stationName)) {
-			throw new StationNotFoundException("No such Station with that name!");
+			throw new StationNotFoundException("No such station with that name!");
 		}
 		return listOfStations.get(stationName);
 	}
