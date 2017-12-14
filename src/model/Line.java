@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Line {
 	
 	/**
-	 * Holds 'n' amount of <code>Stations</code> in an <code>ArrayList</code>.
+	 * Holds <code>Stations</code> in an <code>ArrayList</code>.
 	 * The ArrayList is used to show a relationship between stations - what stations
 	 * are connected to one another is a specific <code>Line</code>.
 	 */
@@ -27,9 +27,11 @@ public class Line {
     private String lineName;
     
     /**
+     * The <code>Line</code> classes constructor.
+     * 
      * Sets the <code>lineName</code>. E.g. the line name could be set to: Tsuen Wan Line.
      * 
-     * @param lineName A string representation of a <code>Line</code> name.
+     * @param lineName The <code>Line</code> objects set name.
      */
     public Line(String lineName) {
         this.lineName = lineName;

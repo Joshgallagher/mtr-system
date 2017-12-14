@@ -5,34 +5,47 @@ import java.util.Set;
 
 /**
  * 
- * @author Joshua Gallagher Thomas Geraghty Dimitar Stoynev
+ * @author Joshua Gallagher
+ * @author Thomas Geraghty
+ * @author Dimitar Stoynev
  * @version 15/10/2017
  */
 public class Station extends AbstractNode {
 
+	/**
+	 * 
+	 */
     private final Set<Line> stationInLines = new HashSet<>();
+    
+    /**
+     * Stores the name of a given station, e.g. Sunny Bay.
+     */
     private String stationName;
     
     /**
+     * The <code>Station</code> classes constructor.
      * 
-     * @param stationName
+     * Sets the <code>stationName</code>. E.g. the station name could be set to: Sunny Bay.
+     * 
+     * @param stationName The <code>Station</code> objects set name.
      */
     public Station(String stationName) {
         this.stationName = stationName;
     }
 
     /**
-     * Returns name of station.
+     * Returns a <code>Station</code> name.
      * 
-     * @return String stationName
+     * @return stationName Returns the <code>Station</code>'s name.
      */
     public String getStationName() {
         return this.stationName;
     }
 
     /**
-     * Adds station to a line.
-     * @param line
+     * Adds a <code>Station</code to a <code>Line</code>.
+     * 
+     * @param line A <code>Line</code> object.
      */
     public boolean addLine(Line line) {
         if (stationInLines.add(line)) {
@@ -42,17 +55,21 @@ public class Station extends AbstractNode {
     }
 
     /**
-     * Returns an ArrayList containing what Lines station is part of.
+     * Returns an <code>ArrayList</code> containing what <code>Line</code>'s
+     * a <code>Station</code> is part of.
      * 
-     * @return HashSet
+     * @return stationInLines Returns an <code>ArrayList</code> of <code>Stations</code>'s.
      */
     public Set<Line> getStationInLines() {
         return stationInLines;
     }
 
     /**
+     * Returns the <code>Station</code> objects information.
+     * The <code>toString</code> method only returns a stations
+     * name when called.
      * 
-     * @return String stationName
+     * @return string The station name is returned when called on a <code>Station</code> object.
      */
     public String toString() {
         return this.stationName;
